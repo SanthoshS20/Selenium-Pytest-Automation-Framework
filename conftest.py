@@ -1,4 +1,4 @@
-import pytest
+import pytest, constants, allure
 from selenium import webdriver
 
 
@@ -25,3 +25,23 @@ def setup_teardown(request):
     # request.cls.env = environment
     yield
     driver.quit()
+
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+
+        driver = item.cls.driver
+
+        driver.save_screenshot(constants.SCREENSHOT_PATH)
+
+        allure.attach.file(
+            constants.SCREENSHOT_PATH,
+            name="Failure Screenshot",
+            attachment_type=allure.attachment_type.PNG
+        )
