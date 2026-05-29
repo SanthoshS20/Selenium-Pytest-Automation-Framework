@@ -1,5 +1,6 @@
 from pages.base_page.base_page import BasePage
 from pages.form_page.form_page_locators import FormPageLocators
+import time
 
 
 class FormPage(BasePage):
@@ -24,7 +25,8 @@ class FormPage(BasePage):
         self.enter_text(FormPageLocators.MOBILE_NUMBER_INPUT_FIELD, number)
 
     def click_submit_button(self):
-        self.click_element(FormPageLocators.SUBMIT_BUTTON)
+        self.scroll_to_element(FormPageLocators.SUBMIT_BUTTON)
+        self.force_click_element(FormPageLocators.SUBMIT_BUTTON)
 
     def check_if_form_submit_confirm_message_displayed(self, timeout):
         self.wait_until_element_should_be_visible(FormPageLocators.FORM_SUBMIT_CONFIRM_MESSAGE, timeout)

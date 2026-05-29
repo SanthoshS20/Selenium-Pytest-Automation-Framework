@@ -27,11 +27,20 @@ class BasePage:
         self.get_element(locator).is_displayed()
 
     def create_explicit_wait(self, timeout):
-        return WaitDriverWait(self.driver, timeout)
+        return WebDriverWait(self.driver, timeout)
     
     def wait_until_element_should_be_visible(self, locator, timeout):
         self.wait = self.create_explicit_wait(timeout)
         self.wait.until(expected_conditions.visibility_of_element_located(locator))
+
+    def scroll_to_element(self, locator):
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", self.get_element(locator))
     
-    
-        
+    def force_click_element(self, locator):
+        self.driver.execute_script("arguments[0].click();", self.get_element(locator))
+
+    def create_action_chains(self):
+        return ActionChains(self.driver)
+
+    def page_down(self):
+        self.create_action_chains().send_keys(Keys.PAGE_DOWN).perform()

@@ -19,6 +19,7 @@ def setup_teardown(request):
         driver = webdriver.Firefox()
     else:
         driver = webdriver.Edge()
+    driver.maximize_window()
     request.cls.driver = driver
     request.cls.base_url = url
     # request.cls.env = environment
