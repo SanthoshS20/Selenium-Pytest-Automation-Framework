@@ -28,6 +28,7 @@ class FormPage(BasePage):
         self.scroll_to_element(FormPageLocators.SUBMIT_BUTTON)
         self.force_click_element(FormPageLocators.SUBMIT_BUTTON)
 
-    def check_if_form_submit_confirm_message_displayed(self, timeout):
-        self.wait_until_element_should_be_visible(FormPageLocators.FORM_SUBMIT_CONFIRM_MESSAGE, timeout)
+    def check_if_form_submit_confirm_message_displayed(self):
+        self.wait_until_element_should_be_visible(FormPageLocators.FORM_SUBMIT_CONFIRM_MESSAGE)
+        return self.check_if_element_is_visible(FormPageLocators.FORM_SUBMIT_CONFIRM_MESSAGE)
         

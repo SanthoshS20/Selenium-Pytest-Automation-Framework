@@ -1,17 +1,3 @@
-base_url: "https://demoqa.com"
+base_url: "https://www.qa-practice.com/forms/practice-form"
 browser: "chrome"
-headless: false
-timeout: 10
-screenshot_on_failure: true
-log_level: "INFO"
-screenshots_path: "screenshots/"
-reports_path: "reports/"
-log_path: "logs/"
-parallel_execution: false
-browser_options:
-  chrome:
-    - "--disable-infobars"
-    - "--disable-extensions"
-  firefox:
-    - "-private"
-default_test_data_path: "test_data/"
+headless: true
