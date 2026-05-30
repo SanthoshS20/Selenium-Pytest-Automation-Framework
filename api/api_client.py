@@ -1,5 +1,6 @@
 import requests
 from utils.logger import Logger
+from exceptions.custom_exceptions import APIException
 
 class APIClient:
     def __init__(self):
@@ -11,10 +12,10 @@ class APIClient:
             response = self.session.request(method=method, url=url, params=params, json=json, data=data, headers=headers,
                                         files=files, timeout=timeout)
             response.raise_for_status()
-            logger.info(f"Request: {method} {url}")
-            logger.info(f"Status Code: {response.status_code}")
+            self.logger.info(f"Request: {method} {url}")
+            self.logger.info(f"Status Code: {response.status_code}")
             return response
         except requests.HTTPError as http_err:
-            raise Exception(f"HTTP error occurred: {http_err}")
-        except Exception as err:
-            raise Exception(f"An error occurred: {err}")
+            raise requests.HTTPError(f"HTTP error occurred: {http_err}")
+        except APIException as api_err:
+            raise APIException(f"API error occurred: {api_err}")

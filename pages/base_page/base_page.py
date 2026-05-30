@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from core.retry_handler import RetryHandler
 
 
 class BasePage:
@@ -22,7 +23,7 @@ class BasePage:
     def click_element(self, locator):
         try:
             self.wait_until_element_should_be_clickable(locator)
-            self.get_element(locator).click()
+            RetryHandler.execute(lambda: self.get_element(locator).click())
         except NoSuchElementException:
             raise NoSuchElementException(f"Element with locator {locator} not found on the page.")
 
