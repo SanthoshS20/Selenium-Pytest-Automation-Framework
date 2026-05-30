@@ -4,7 +4,7 @@ from exceptions.custom_exceptions import APIException
 
 class APIClient:
     def __init__(self):
-        self.logger = Logger.get_logger(__name__, Logger.LOG_LEVEL)
+        self.logger = Logger.get_logger(__name__)
         self.session = requests.Session()
 
     def make_api_request(self, method, url, params=None, json=None, data=None, headers=None, files=None, timeout=30):

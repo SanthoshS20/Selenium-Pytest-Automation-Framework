@@ -6,7 +6,7 @@ from pages.form_page.form_page import FormPage
 class TestFormPage:
 
     def setup_method(self, method):
-        self.log = Logger.get_logger(__name__, constants.LOG_LEVEL)
+        self.log = Logger.get_logger(__name__)
         self.form_page = FormPage(self.driver)
         self.log.info("Test setup completed.")
         self.form_page.open_url(self.base_url)

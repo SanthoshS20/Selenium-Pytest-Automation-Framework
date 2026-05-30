@@ -1,10 +1,8 @@
-
-
-class CustomException(Exception):
+class CustomExceptions(Exception):
     pass
 
-class APIException(CustomException):
+class APIException(CustomExceptions):
     pass
 
-class JSONException(CustomException):
+class JSONException(CustomExceptions):
     pass

@@ -1,3 +1,6 @@
 base_url: "https://www.qa-practice.com/forms/practice-form"
 browser: "chrome"
 headless: false
+log_level: "INFO"
+api:
+  base_url: "https://jsonplaceholder.typicode.com"

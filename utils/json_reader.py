@@ -3,7 +3,7 @@ from utils.logger import Logger
 
 class JSONReader:
 
-    logger = Logger.get_logger(__name__, Logger.LOG_LEVEL)
+    logger = Logger.get_logger(__name__)
 
     @staticmethod
     def read_json_data_from_file(file_path):
