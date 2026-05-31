@@ -5,13 +5,10 @@ class ScreenshotUtils:
 
     @staticmethod
     def capture(driver):
-        os.makedirs("screenshots", exist_ok=True)
-        screenshot_dir = os.path.join(constants.BASE_DIR, 'screenshots')
-
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
         screenshot_path = os.path.join(
-            screenshot_dir,
+            constants.SCREENSHOTS_DIR,
             f"screenshot_{timestamp}.png"
         )
         driver.save_screenshot(screenshot_path)

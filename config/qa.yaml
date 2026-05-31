@@ -4,3 +4,4 @@ headless: false
 log_level: "INFO"
 api:
   base_url: "https://jsonplaceholder.typicode.com"
+auth_url: "https://automationexercise.com/api/verifyLogin"

@@ -14,5 +14,3 @@ LOG_FILE_PATH = os.path.join(LOGS_DIR, LOG_FILE_NAME)
 # Screenshots configuration
 SCREENSHOTS_DIR = os.path.join(BASE_DIR, 'screenshots')
 os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
-SCREENSHOT_FILE_NAME = f"screenshot_{TIMESTAMP}.png" 
-SCREENSHOT_PATH = os.path.join(SCREENSHOTS_DIR, SCREENSHOT_FILE_NAME)
