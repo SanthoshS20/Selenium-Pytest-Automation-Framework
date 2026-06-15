@@ -3,5 +3,4 @@ browser: "chrome"
 headless: false
 log_level: "INFO"
 api:
-  base_url: "https://jsonplaceholder.typicode.com"
-auth_url: "https://automationexercise.com/api/verifyLogin"
+  base_url: "https://api.eventhub.rahulshettyacademy.com/api"

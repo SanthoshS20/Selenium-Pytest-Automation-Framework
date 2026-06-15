@@ -19,3 +19,6 @@ class APIClient:
             raise requests.HTTPError(f"HTTP error occurred: {http_err}")
         except APIException as api_err:
             raise APIException(f"API error occurred: {api_err}")
+        
+    def update_headers(self, headers):
+        self.session.headers.update(headers)

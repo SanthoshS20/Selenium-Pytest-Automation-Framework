@@ -14,3 +14,8 @@ LOG_FILE_PATH = os.path.join(LOGS_DIR, LOG_FILE_NAME)
 # Screenshots configuration
 SCREENSHOTS_DIR = os.path.join(BASE_DIR, 'screenshots')
 os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+
+# Test data
+TEST_DATA_PATH = os.path.join(BASE_DIR, 'test_data')
+BOOKINGS_DATA_FILE_PATH = os.path.join(TEST_DATA_PATH, 'bookings_data.json')
+EVENTS_DATA_FILE_PATH = os.path.join(TEST_DATA_PATH, 'event_data.json')

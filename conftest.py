@@ -2,6 +2,7 @@ import pytest, allure
 from core.driver_manager import DriverManager
 from utils.screenshot_utils import ScreenshotUtils
 from config.config_manager import ConfigManager
+from dotenv import load_dotenv
 
 
 def pytest_addoption(parser):
@@ -10,9 +11,9 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session", autouse=True)
 def initialize_config(request):
+    load_dotenv()
     env = request.config.getoption("--env")
     ConfigManager.initialize(env)
-    print(ConfigManager._config)
 
 
 @pytest.fixture(scope="class")
