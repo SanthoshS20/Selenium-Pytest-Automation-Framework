@@ -1,5 +1,4 @@
-# framework-selenium-python-pytest
-## framework-selenium-python-pytest
+# Selenium Pytest Automation Framework
 
 
 ### Packages required
@@ -10,24 +9,97 @@
     pytest-rerunfailures
     requests
     pyyaml
-    
+    dotenv
 
-            Driver Factory
 
-            Config Reader
+````markdown
+# Selenium Python PyTest Automation Framework
 
-            Smart BasePage
+A scalable and maintainable test automation framework built using Selenium WebDriver, Python, and PyTest. The framework follows the Page Object Model (POM) design pattern to improve code reusability, readability, and maintainability.
 
-            Logger
+## Features
 
-            Screenshot Strategy
+- Selenium WebDriver with Python
+- PyTest test runner
+- Page Object Model (POM)
+- Reusable utilities and fixtures
+- Environment-based configuration
+- Parallel test execution
+- HTML and Allure reporting
+- Screenshot capture on test failures
 
-            Parallel Execution
+## Installation
 
-            Data Management
+Clone the repository:
 
-            Retry Strategy
+```bash
+git clone <repository-url>
+cd <project-folder>
+````
 
-            Assertions
+Create and activate a virtual environment:
 
-            CI/CD
+### Windows
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Mac/Linux
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running Tests
+
+Run all tests:
+
+```bash
+pytest
+```
+
+Run a specific test file:
+
+```bash
+pytest tests/test_login.py
+```
+
+Run tests in parallel:
+
+```bash
+pytest -n auto
+```
+
+Run tests with verbose output:
+
+```bash
+pytest -v
+```
+
+## Generate Reports
+
+Generate Allure results:
+
+```bash
+pytest --alluredir=allure-results
+```
+
+View Allure report:
+
+```bash
+allure serve allure-results
+```
+
+```
+
+This is the style most recruiters and GitHub visitors prefer—short, focused, and easy to follow.
+```

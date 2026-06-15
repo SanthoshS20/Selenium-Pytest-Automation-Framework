@@ -20,7 +20,6 @@ class TestEvemts:
     def teardown_class(cls):
         cls.logger.info("Teardown method execution started")
 
-    @pytest.mark.test
     def test_create_new_events(self):
         self.logger.info("Test scenario - Create new event")
         response = self.events_api.create_new_events(self.event_data)
