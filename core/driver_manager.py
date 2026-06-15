@@ -29,6 +29,4 @@ class DriverManager:
 
         else:
             raise Exception(f"Unsupported browser: {browser_name}")
-
-        driver.implicitly_wait(5)
         return driver
