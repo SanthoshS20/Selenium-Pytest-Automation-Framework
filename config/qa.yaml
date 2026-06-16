@@ -1,4 +1,4 @@
-base_url: "https://www.qa-practice.com/forms/practice-form"
+base_url: "https://eventhub.rahulshettyacademy.com"
 browser: "chrome"
 headless: false
 log_level: "INFO"

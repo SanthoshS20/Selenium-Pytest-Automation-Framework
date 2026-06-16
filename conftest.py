@@ -1,7 +1,8 @@
-import pytest, allure
+import pytest, allure, os
 from core.driver_manager import DriverManager
 from utils.screenshot_utils import ScreenshotUtils
 from config.config_manager import ConfigManager
+from pages.login_page.login_page import LoginPage
 from dotenv import load_dotenv
 
 
@@ -23,6 +24,16 @@ def setup_teardown(request):
     request.cls.base_url = ConfigManager.get("base_url")
     yield
     driver.quit()
+
+@pytest.fixture(scope="class")
+def authenticate_user(request):
+    login_page = LoginPage(request.cls.driver)
+    login_page.open_url(request.cls.base_url)
+    login_page.login(
+        os.getenv("TEST_EMAIL"),
+        os.getenv("TEST_PASSWORD")
+    )
+    yield
 
 
 @pytest.hookimpl(hookwrapper=True)

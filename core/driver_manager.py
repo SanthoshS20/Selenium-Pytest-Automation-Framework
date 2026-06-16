@@ -16,7 +16,16 @@ class DriverManager:
 
             options.add_argument("--start-maximized")
             options.add_argument("--disable-notifications")
+            prefs = {
+                "credentials_enable_service": False,
+                "profile.password_manager_enabled": False,
+                "profile.password_manager_leak_detection": False
+            }
 
+            options.add_experimental_option("prefs", prefs)
+
+            options.add_argument("--disable-features=PasswordLeakDetection")
+            options.add_argument("--disable-notifications")
             driver = webdriver.Chrome(options=options)
 
         elif browser_name.lower() == "firefox":

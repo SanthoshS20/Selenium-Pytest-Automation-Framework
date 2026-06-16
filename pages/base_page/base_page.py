@@ -13,7 +13,7 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
 
-    def open_url(self, url):
+    def navigate(self, url):
         self.driver.get(url)
 
     def get_element(self, locator):
@@ -60,3 +60,10 @@ class BasePage:
 
     def page_down(self):
         self.create_action_chains().send_keys(Keys.PAGE_DOWN).perform()
+
+    def select_option_from_dropdown(self, locator, option):
+        dropdown_element = Select(locator)
+        dropdown_element.select_by_value(option)
+
+    def click_tab(self):
+        self.create_action_chains().send_keys(Keys.TAB).perform()
