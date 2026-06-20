@@ -21,6 +21,7 @@ class TestEvemts:
     def teardown_class(cls):
         cls.logger.info("Teardown method execution started")
 
+    @pytest.mark.smoke
     def test_create_new_events(self):
         self.logger.info("Test scenario - Create new event")
         response = self.events_api.create_new_events(self.event_data)
@@ -32,6 +33,7 @@ class TestEvemts:
         check.equal(response_body["message"], "Event created successfully", "event is not confirmed")
         self.delete_event(response_body["data"]["id"])
 
+    @pytest.mark.smoke
     def test_get_all_events(self):
         self.logger.info("Test scenario - Get single event")
         response = self.events_api.create_new_events(self.event_data)
@@ -66,7 +68,7 @@ class TestEvemts:
         for event in all_events_response.json()["data"]:
             check.not_equal(event["id"], response_body["data"]["id"], "event is not cancelled properly")
 
-
+    @pytest.mark.smoke
     def test_update_event(self):
         self.logger.info("Test scenario - Update event")
         response = self.events_api.create_new_events(self.event_data)

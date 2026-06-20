@@ -65,7 +65,7 @@ class TestTicketBooking:
         all_bookings_response = self.bookings_api.get_all_bookings({})
         assert all_bookings_response.status_code ==  200, f"Expected 200 but received {all_bookings_response.status_code}"
         for booking in all_bookings_response.json()["data"]:
-            check.equal(booking["id"] != response_body["data"]["id"], "Booking is not cancelled properly")
+            check.not_equal(booking["id"], response_body["data"]["id"], "Booking is not cancelled properly")
 
 
     def cancel_booking(self, booking_id):

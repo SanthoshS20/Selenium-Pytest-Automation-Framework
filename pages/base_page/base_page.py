@@ -42,6 +42,12 @@ class BasePage:
             self.wait.until(expected_conditions.visibility_of_element_located(locator))
         except TimeoutException:
             raise TimeoutException(f"Element with locator {locator} is not visible within the specified timeout.")
+        
+    def wait_until_not_element_should_be_visible(self, locator):
+        try:
+            self.wait.until_not(expected_conditions.visibility_of_element_located(locator))
+        except TimeoutException:
+            raise TimeoutException(f"Element with locator {locator} is not visible within the specified timeout.")
 
     def wait_until_element_should_be_clickable(self, locator):
         try:

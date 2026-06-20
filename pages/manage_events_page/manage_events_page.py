@@ -16,6 +16,7 @@ class ManageEventsPage(BasePage):
         self.select_event_datetime(event_data.get('eventDate'))
         self.click_element(ManageEventsPageLocators.ADD_EVENT_BUTTON)
         self.wait_until_element_should_be_visible(ManageEventsPageLocators.EVENT_CREATED_MESSAGE)
+        self.wait_until_not_element_should_be_visible(ManageEventsPageLocators.EVENT_CREATED_MESSAGE)
         
     def select_event_datetime(self, datetime):
         date, time = datetime.split("T")
